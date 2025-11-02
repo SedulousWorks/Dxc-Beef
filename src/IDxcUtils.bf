@@ -117,6 +117,8 @@ namespace Dxc_Beef
 				return (.)mVT;
 			}
 		}
+
+		public HRESULT CreateDefaultIncludeHandler(out IDxcIncludeHandler *ppResult) mut => VT.CreateDefaultIncludeHandler(&this, out ppResult);
 	}
 
 }

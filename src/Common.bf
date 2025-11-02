@@ -1,6 +1,24 @@
 using System;
 namespace Dxc_Beef
 {
+	[AllowDuplicates]
+	enum DXC_CP
+	{
+		// For convenience, equivalent definitions to CP_UTF8 and CP_UTF16.
+		DXC_CP_UTF8 = 65001,
+		DXC_CP_UTF16 = 1200,
+		DXC_CP_UTF32 = 12000,
+		// Use DXC_CP_ACP for: Binary;  ANSI Text;  Autodetect UTF with BOM
+		DXC_CP_ACP = 0,
+
+		/// Codepage for "wide" characters - UTF16 on Windows, UTF32 on other platforms.
+#if BF_PLATFORM_WINDOWS
+		DXC_CP_WIDE = DXC_CP_UTF16,
+#else
+		DXC_CP_WIDE = DXC_CP_UTF32,
+#endif
+	}
+
 	enum HRESULT : int32
 	{
 		S_OK = 0,
